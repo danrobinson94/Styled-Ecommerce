@@ -13,7 +13,6 @@ export async function getServerSideProps(params) {
       expand: ["line_items"],
     }
   );
-  console.log(order);
   return { props: { order } };
 }
 

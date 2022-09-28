@@ -52,7 +52,6 @@ const Orders = styled.div`
   h2 {
     font-size: 1rem;
   }
-  /* margin-bottom: 1rem; */
 `;
 
 const Order = styled.div`

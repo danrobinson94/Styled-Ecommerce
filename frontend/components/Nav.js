@@ -10,9 +10,8 @@ const { AnimatePresence, motion } = require("framer-motion");
 
 export default function Nav() {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
-  const { user, error, isLoading } = useUser();
+  const { user, error } = useUser();
 
-  console.log(user);
   return (
     <NavStyles>
       <Link href={"/"}>Styled.</Link>
@@ -28,14 +27,7 @@ export default function Nav() {
           <h3>Cart</h3>
         </div>
       </NavItems>
-      <AnimatePresence>
-        {showCart && (
-          <Cart
-          // animate={{ x: 0, transition: { duration: 2, delay: 1 } }}
-          // initial={{ x: 200 }}
-          />
-        )}
-      </AnimatePresence>
+      <AnimatePresence>{showCart && <Cart />}</AnimatePresence>
     </NavStyles>
   );
 }

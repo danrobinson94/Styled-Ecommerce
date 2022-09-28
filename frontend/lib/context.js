@@ -2,8 +2,8 @@ import React, { createContext, useContext, useState } from "react";
 
 const ShopContext = createContext();
 
+// Add our data for the state
 export const StateContext = ({ children }) => {
-  // Add our data for the state
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [qty, setQty] = useState(1);
@@ -23,10 +23,9 @@ export const StateContext = ({ children }) => {
   };
 
   const onAdd = (product, quantity) => {
-    // console.log("here");
     setTotalQuantities((prevState) => prevState + quantity);
     setTotalPrice((prevState) => prevState + product.price * quantity);
-    // Check if it's already in part
+    // Check if it's already in cart
     const exist = cartItems.find((item) => item.slug === product.slug);
     if (exist) {
       setCartItems(
@@ -57,7 +56,6 @@ export const StateContext = ({ children }) => {
   };
 
   const onRemove = (product) => {
-    // console.log("removing");
     const exist = cartItems.find((item) => item.slug === product.slug);
     setTotalQuantities((prevState) => prevState - exist.quantity);
     setTotalPrice((prevState) => prevState - exist.price * exist.quantity);

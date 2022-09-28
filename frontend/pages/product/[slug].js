@@ -50,14 +50,8 @@ export default function ProductDetails() {
       <ProductInfo>
         <h3>{title}</h3>
         <p>{description}</p>
-
         <Quantity>
-          <span
-          // animate={{ y: 200, transition: { duration: 2, delay: 1 } }}
-          // initial={{ x: 200 }}
-          >
-            Quantity
-          </span>
+          <span>Quantity</span>
           <button>
             <AiFillMinusCircle onClick={decreaseQty} />
           </button>
